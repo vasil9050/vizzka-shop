@@ -1,0 +1,21 @@
+
+<!-- <form action="/shop/wishlist/<%= item._id %>/reviews" method="Post">
+    <input type="text" placeholder="Type the review" name="review[text]">
+    <input type="text" placeholder="author name" name="review[author]">
+    <button>submit</button>
+</form> -->
+
+<% include ../partials/header %>
+<div class="formbase">
+<h1>Add Review in <%= item.name %></h1>
+
+<form action="/shop/wishlist/<%= item._id %>/reviews" method="post" class="ui form">
+    <div class="field">
+        <label>Review :</label>
+        <input type="text" placeholder="Type the review" name="review[text]">
+    </div>
+    <button class="ui inverted green button">Submit</button>
+</form>
+</div>
+
+<% include ../partials/footer %>

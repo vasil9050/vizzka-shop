@@ -1,0 +1,15 @@
+
+<% include ../partials/header %>
+<div class="formbase">
+<h1>Edit Review</h1>
+
+<form action="/shop/wishlist/<%= item_id %>/reviews/<%= review._id %>?_method=PUT" method="post" class="ui form">
+    <div class="field">
+        <label>Review :</label>
+        <input type="text" value="<%= review.text %>" name="review[text]">
+    </div>
+    <button class="ui inverted green button">Submit</button>
+</form>
+</div>
+
+<% include ../partials/footer %>

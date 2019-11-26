@@ -1,0 +1,32 @@
+<% include ./partials/header %>
+<h1>Edit for <%= item.name %></h1>
+
+<div class="ui main text container">
+    <div class="ui segment">
+        <form action="/shop/wishlist/<%= item._id %>?_method=PUT" method="post" class="ui form">
+            <div class="field">
+                <label>Name:</label>
+                <input type="text" value="<%= item.name %>" name = "item[name]">
+            </div>
+           <div class="field">
+               <label>Image:</label>
+                <input type="text" value="<%= item.image %>" name = "item[image]">
+           </div>
+            <div>
+                <label>Description:</label>
+                 <input type="text" value="<%= item.description %>" name = "item[description]">
+            </div>
+            <div>
+                    <label>Price:</label>
+                    <input type="number" value="<%= item.price %>" name = "item[price]">
+            </div>
+            <br>
+
+           <button class="ui basic green button" type="submit">Update</button>
+            
+        </form>
+    </div>
+    <a href="/shop" class="ui basic red button"><i class="ui backward icon"></i></a>
+</div>
+
+<% include ./partials/footer %>

@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+<h1>Add An Item</h1>
+
+<div class="ui main text container">
+    <div class="ui segment">
+        <form action="/shop" method="post" class="ui form">
+            <div class="field">
+                <label>Name:</label>
+                <input type="text" placeholder="Enter Item Name" name = "name">
+            </div>
+           <div class="field">
+               <label>Image:</label>
+                <input type="text" placeholder="Enter Image" name = "image">
+           </div>
+            <div>
+                <label>Description:</label>
+                 <input type="text" placeholder="Description" name = "description">
+            </div>
+            <div>
+                    <label>Price:</label>
+                    <input type="number" placeholder="Enter the price" name = "price">
+            </div>
+            <br>
+
+           <button class="ui button" type="submit">ADD</button>
+            
+        </form>
+    </div>
+</div>
+
+<% include ./partials/footer %>

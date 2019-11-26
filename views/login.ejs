@@ -1,0 +1,19 @@
+<% include ./partials/header %>
+<div class="formbase">
+<h1>Login Form</h1>
+
+<form action="/login" method="post" class="ui form">
+    <div class="field">
+        <label>Username :</label>
+            <input type="text" placeholder="Enter the Username" name="username">
+    </div>
+    <div class="field">
+        <label>Password :</label>
+            <input type="password" placeholder="Enter the password" name="password">
+    </div>
+    
+    <button class="ui inverted green button">Login</button>
+</form>
+</div>
+
+<% include ./partials/footer %>

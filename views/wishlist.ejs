@@ -1,0 +1,81 @@
+<% include ./partials/header %>
+
+<div class="ui header">
+  <h1>WISHlist</h1>
+</div>
+<div class="ui container">
+      
+        <div id="segment" class="ui raised segment">
+                <div class="ui three column grid">
+                        <div class="column">
+                          <img class="ui medium image" src="<%= item.image %>">
+                          <p>submitted by - <strong><%= item.author.username %></strong></p>
+                        </div>
+                <div class="column">
+                        <div class="ui header">
+                            <%= item.name %>
+                        </div>
+                        <div class="description">
+                               <h4><%= item.description %></h4>
+                        </div>
+                        <br>
+                        <div class="ui circular segment">
+                                        <h2 class="ui header">
+                                         <a href="#">Buy Now</a>
+                                          <div class="sub header">Rs <%= item.price%></div>
+                                        </h2>
+                                      </div>
+                </div>
+                <% if(currentuser && item.author.id.equals(currentuser._id)){ %>
+                        <div class="column">
+                               <form action="/shop/wishlist/<%= item._id %>/edit" method="get">
+                                <button class="ui animated basic green button" tabindex="0">
+                                                <div class="visible content">Edit</div>
+                                                <div class="hidden content">
+                                                  <i class="cut icon"></i>
+                                                </div>
+                                              </button>
+                               </form> 
+                               <br>
+                               <form action="/shop/wishlist/<%= item._id %>?_method=DELETE" method="post">
+                                <button class="ui animated basic orange button" tabindex="0">
+                                                <div class="visible content">Remove</div>
+                                                <div class="hidden content">
+                                                  <i class="trash icon"></i>
+                                                </div>
+                                              </button>
+                               </form>
+                               
+                               <% } %>
+                               <!-- <br>
+                               <a href="/logout"><button class="ui animated basic red button" tabindex="0">
+                                <div class="visible content">LogOut</div>
+                                <div class="hidden content">
+                                  <i class="logout icon"></i>
+                                </div>
+                              </button> </a> -->
+                        </div>
+                        
+                </div>
+        
+        <a href="/shop/wishlist/<%= item._id %>/reviews/new">Add Review</a>
+        <% item.review.forEach((review) =>{ %>
+          <div id="segment" class="ui segment">
+          <p><strong><%= review.author.username %></strong> - <%= review.text %> </p>
+          <% if(currentuser && review.author.id.equals(currentuser._id)){ %>
+          <a class="ui green mini button" href="/shop/wishlist/<%= item._id %>/reviews/<%= review._id %>/edit">Edit</a>
+          <form style="display: inline;" action="/shop/wishlist/<%= item._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+            <input class="ui red inverted mini button" type="submit" value="delete">
+          </form>
+          <%  } %>
+          </div>
+    <%    }) %>
+        <br><br>
+        <a href="/shop" class="ui basic orange button"><i class="ui backward icon"></i></a>
+</div>
+</div>
+
+
+
+
+<% include ./partials/footer %>

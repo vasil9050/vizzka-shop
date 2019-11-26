@@ -1,0 +1,22 @@
+body {
+    background-color: #b8b8b8;
+  }
+.formbase{
+    width: 300px;
+    border: 1px solid black;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1{
+    text-align: center;
+}
+.container{
+    padding-top: 10px;
+}
+
+#segment{
+    background-color: #d8d8d8;
+}

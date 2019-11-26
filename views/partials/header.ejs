@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vizzka Shoppe</title>
+		<link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="/style.css">
+    
+</head>
+<body>
+    <div class="ui secondary  menu">
+        <a class="active item" href="/">
+          VizZka
+        </a>
+        <div class="right menu">
+           <% if(!currentuser){ %> 
+                <a class="ui item" href="/login">
+                    Login
+                  </a>
+              <a class="ui item" href="/register">
+                Register
+              </a>
+            </div>
+          <%  }else{ %>
+            <a class="ui item" href="#">
+                <p>signed in as <strong><%= currentuser.username %></strong></p> 
+             </a>
+            <a class="ui item" href="/logout">
+                LogOut
+             </a>
+         <%   } %>
+        </div>
+    </div>
+    <div class="ui container">
+      <% if(error && error.length > 0){ %>
+       <div class="ui red inverted message">
+         <p><%= error %></p>
+       </div>
+      <% } %>
+      <% if(success && success.length > 0){ %>
+       <div class="ui green inverted message">
+         <p><%= success %></p>
+       </div>
+      <% } %>
+    </div>
+  
+    

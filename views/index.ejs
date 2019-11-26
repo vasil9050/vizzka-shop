@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+<h1>Shop Here / <a href="/shop/new">ADD NEW</a></h1>
+
+<div class="ui container">
+  <div id="segment" class="ui raised segment">
+        
+  <div class="ui relaxed grid">
+      <div class="three column row">
+          <% items.forEach((item)=>{ %>
+          <div class="column" style="margin-bottom: 10px">
+              <h2><%= item.name %></h2>
+              <img src="<%= item.image %>" width="300px" height="200px">
+              <!-- <p><%= item.description %></p> -->
+              <h3>Rs <%= item.price %></h3>
+              <!-- <form action="/shop/wishlist" method="get">
+                      <button type="submit" class="ui vertical animated red basic button" tabindex="0">
+                              <div class="hidden content">Wishlist</div>
+                              <div class="visible content">
+                                <i class="heart icon"></i>
+                              </div>
+                       </button>
+              </form> -->
+             <a href="/shop/wishlist/<%= item._id %>"><button type="submit" class="ui vertical animated red basic button" tabindex="0">
+                  <div class="hidden content">Wishlist</div>
+                  <div class="visible content">
+                    <i class="heart icon"></i>
+                  </div>
+           </button></a>
+          </div>
+          <% }) %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% include ./partials/footer %>
